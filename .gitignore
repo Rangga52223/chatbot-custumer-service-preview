@@ -1,0 +1,26 @@
+# Virtual environment
+bakso/
+.env
+
+# Bytecode Python
+__pycache__/
+*.py[cod]
+chroma_db/
+# Log & debug
+*.log
+*.tmp
+debug.log
+
+# Config & credentials
+secrets.json
+config.json
+database.sqlite
+
+# Cache & build
+*.egg-info/
+dist/
+build/
+
+# Dev
+local_models
+uploads
