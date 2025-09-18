@@ -38,6 +38,10 @@ pip install -r requirements.txt
 Jalankan aplikasi:
 ```bash
 python run.py
+
+#Kamu bisa menjalankan lewat DOCKER
+
+#Jangan lupa setting link Database nya
 ```
 
 ---
