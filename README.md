@@ -48,19 +48,19 @@ seperti gambar dibawah ini:<br>
 **-Table Produk**
 table produk adalah table yang berisi informasi mengenai produk yang akan di tawarkan
 
-**-Table Produk**
+**-Table Type**
 table type merupakan table yang berisi infromasi tipe barang, kayak mesin cuci, televisi, kulkas.
 
-**-Table Produk**
+**-Table Transaction**
 table transaction merupakan table yang berisi informasi tentang transaksi yang telah dilakukan.
 
-**-Table Produk**
+**-Table Chat_log**
 table chatlog merupakan table yang berisi informasi tentang riwayat chat user dengan chatbot, bergunakan untuk memory untuk llm.
 
-**-Table Produk**
+**-Table User**
 table user merupakan table yang berisi informasi tentang user seperti user_id.
 
-**-Table Produk**
+**-Table Waranty_Detail**
 table waranty_detail merupakan table yang berisi tentang informasi batasan batasan kerusakan yang dapat di garansi tergantung tipe nya.<br>
 
 Table stok tidak digunakan
