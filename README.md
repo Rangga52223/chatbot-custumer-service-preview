@@ -42,10 +42,28 @@ python run.py
 
 ## 🗄 Desain Database
 
-data base saya terdiri dari 7 table.
-seperti gambar dibawah ini:
-![Demo](sql_db/Screenshot 2025-09-18 151346.png)
+**data base saya terdiri dari 7 table.**<br>
+seperti gambar dibawah ini:<br>
+![Demo]('sql_db/Screenshot 2025-09-18 151346.png')<br>
+**-Table Produk**
+table produk adalah table yang berisi informasi mengenai produk yang akan di tawarkan
 
+**-Table Produk**
+table type merupakan table yang berisi infromasi tipe barang, kayak mesin cuci, televisi, kulkas.
+
+**-Table Produk**
+table transaction merupakan table yang berisi informasi tentang transaksi yang telah dilakukan.
+
+**-Table Produk**
+table chatlog merupakan table yang berisi informasi tentang riwayat chat user dengan chatbot, bergunakan untuk memory untuk llm.
+
+**-Table Produk**
+table user merupakan table yang berisi informasi tentang user seperti user_id.
+
+**-Table Produk**
+table waranty_detail merupakan table yang berisi tentang informasi batasan batasan kerusakan yang dapat di garansi tergantung tipe nya.<br>
+
+Table stok tidak digunakan
 
 ## 📚 Library & Framework yang Digunakan
 
