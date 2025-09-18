@@ -15,8 +15,6 @@ def main_service(question, user_id):
         prompt = f"""
         Kamu adalah AI yang HANYA mengembalikan output berupa JSON VALID.
         jangan ada "Berikut adalah kembalihan JSON dengan format yang sesuai:" harus clear.
-        Riwayat percakapan:
-        {data_chat}
 
         Pertanyaan baru:
         "{question}"

@@ -14,6 +14,7 @@ Pastikan sudah terinstall:
 - **SQL** Seperti mariadb, saya mau aslinya mau pake postgre, tapi mengikuti ketentuan.
 - **Ollama** untuk init ke llama 3.2:3b
 - **LLAMA3.2:3b** pastikan sudah di pull
+- **Langchain_Comunity** pastikan sudah di install
 
 ### 2. Cara Instalasi
 Clone repository dan install dependency:
@@ -41,6 +42,9 @@ python run.py
 
 ## 🗄 Desain Database
 
+data base saya terdiri dari 7 table.
+seperti gambar dibawah ini:
+![Demo](https://raw.githubusercontent.com/username/repo/branch/path/gambar.png)
 
 
 ## 📚 Library & Framework yang Digunakan
