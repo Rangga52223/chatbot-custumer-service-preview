@@ -51,7 +51,7 @@ python run.py
 
 | Komponen          | Model / Service     |
 |------------------|-------------------|
-| **LLM Core**     | GPT-4 / GPT-5 (via OpenAI API) |
+| **LLM Core**     | LLAMA 3.2:3b(Lokal) |
 | **Prompting**    | Custom prompt untuk klasifikasi `alur` dan pembuatan jawaban |
 | **Memori**       | SQL database + retrieval dari 3 chat terakhir |
 
@@ -86,20 +86,6 @@ Agent mendukung tool call berikut:
 
 ## 🧪 Cara Uji
 
-1. **Simpan chat:**  
-   Kirim request:
-   ```json
-   { "question": "Nama kucing saya Bobo", "user_id": "123" }
-   ```
-
-2. **Recall chat:**  
-   Kirim request lain:
-   ```json
-   { "question": "Siapa nama kucing saya?", "user_id": "123" }
-   ```
-   AI harus menjawab **"Nama kucing kamu Bobo"**, bahkan setelah server direstart.
-
----
 
 ## 📄 Lisensi
 MIT License – bebas digunakan dan dimodifikasi.
