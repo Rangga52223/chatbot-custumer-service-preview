@@ -44,7 +44,7 @@ python run.py
 
 data base saya terdiri dari 7 table.
 seperti gambar dibawah ini:
-![Demo](https://raw.githubusercontent.com/username/repo/branch/path/gambar.png)
+![Demo](sql_db/Screenshot 2025-09-18 151346.png)
 
 
 ## 📚 Library & Framework yang Digunakan
