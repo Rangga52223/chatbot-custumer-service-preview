@@ -1,5 +1,6 @@
 from app.llm.ollama_init import llm_call_tooling, call_llm_no_retrive
 from app.helper.find_prod import find_product_with_warranty
+from app.helper.saving_chat import save_chat
 from flask import jsonify
 import json
 
@@ -52,7 +53,7 @@ import json
 #             "message": "Pertanyaan ini tidak hanya tentang detail garansi"
 #         }), 200
 
-def waranty_explainer(question, language):
+def waranty_explainer(question, language, user_id):
     data = find_product_with_warranty(question)
     prompt = f"""Kamu adalah customer support untuk platform toko online.
 ini data garansi: {data}
@@ -64,7 +65,7 @@ Pertanyaan: "{question}"
 
     # Panggil LLM dengan tool
     answer = call_llm_no_retrive(prompt)
-
+    save_chat(user_id, question, answer)
     return jsonify(message=answer),200
 
 

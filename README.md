@@ -12,6 +12,8 @@ Pastikan sudah terinstall:
 - **Python 3.10+**
 - **pip** (package manager)
 - **SQL** Seperti mariadb, saya mau aslinya mau pake postgre, tapi mengikuti ketentuan.
+- **Ollama** untuk init ke llama 3.2:3b
+- **LLAMA3.2:3b** pastikan sudah di pull
 
 ### 2. Cara Instalasi
 Clone repository dan install dependency:
@@ -62,7 +64,7 @@ python run.py
 - **Produk (alur = a):**  
   - "menanyakan keseluruhan produk"
   - "membandingkan antar produk"
-  - "menanyakan stok produk yang tersedia"
+  - "menanyakan keunggulan produk"
 - **Garansi (alur = b):**  
   - "menayakan secara general garansi produk tersebut"
   - "menanyakan secara spesifik kerusakan terhadap produk dan dapat diclaim garansi atau tidak"

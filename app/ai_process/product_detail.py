@@ -8,6 +8,7 @@ def product_detail(question, language, user_id):
     detail_produk = ""
     for p in product:
         detail_produk += f"""
+ID Produk: {p.product_id}
 Nama Produk: {p.product_name}
 Deskripsi: {p.description or '-'}
 Garansi: {p.garansi or '-'}
