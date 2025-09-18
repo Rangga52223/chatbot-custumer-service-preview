@@ -86,7 +86,7 @@ Table stok tidak digunakan
 ---
 
 ## ❓ Daftar Pertanyaan yang Dapat Dijawab
-
+Perhatian kasih pertanyaan produk seputar televisi, mesin cuci, dan kulkas saja
 - **Produk (alur = a):**  
   - "apa saja produk merek A?"
   - "Apa bagus nya produk A, dibanding produk B"
