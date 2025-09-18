@@ -44,7 +44,7 @@ python run.py
 
 **data base saya terdiri dari 7 table.**<br>
 seperti gambar dibawah ini:<br>
-![Demo](Screenshot 2025-09-18 151346.png)<br>
+![image](l.png)<br>
 **-Table Produk**
 table produk adalah table yang berisi informasi mengenai produk yang akan di tawarkan
 
