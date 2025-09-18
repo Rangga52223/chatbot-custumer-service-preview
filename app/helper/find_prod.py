@@ -2,47 +2,31 @@ from sqlalchemy import or_
 from app.db_model.model_db import Produk, Type, WarantyDetail, Stok
 def find_products_by_question(question: str):
     """
-    Cari produk relevan berdasarkan pertanyaan user + ambil stok.
+    Cari produk relevan berdasarkan pertanyaan user dengan informasi stok.
     """
     # --- 1. Preprocessing sederhana ---
     text = question.lower()
+
+    # bisa ditingkatkan: hapus stopwords, stemming, dsb.
     keywords = text.split()
 
-    # --- 2. Build query dengan JOIN ke Type dan Stok ---
-    query = (
-        Produk.query
-        .join(Type)
-        .outerjoin(Stok)  # pakai outerjoin supaya tetap dapat produk walau stok kosong
-    )
-
+    # --- 2. Build query dengan join ke tabel Stok ---
+    # Menggunakan left join agar produk tanpa stok juga muncul
+    query = Produk.query.join(Type).outerjoin(Stok)
     filters = []
+
     for kw in keywords:
-        filters.extend([
-            Produk.product_name.ilike(f"%{kw}%"),
-            Produk.description.ilike(f"%{kw}%"),
-            Produk.garansi.ilike(f"%{kw}%"),
-            Type.type_name.ilike(f"%{kw}%")
-        ])
+        filters.append(Produk.product_name.ilike(f"%{kw}%"))
+        filters.append(Produk.description.ilike(f"%{kw}%"))
+        filters.append(Produk.garansi.ilike(f"%{kw}%"))
+        filters.append(Type.type_name.ilike(f"%{kw}%"))
 
     if filters:
-        query = query.filter(or_(*filters))
+        products = query.filter(or_(*filters)).all()
+    else:
+        products = query.all()
 
-    products = query.all()
-
-    # --- 3. Buat output yang mencakup stok ---
-    result = []
-    for p in products:
-        result.append({
-            "product_id": p.product_id,
-            "product_name": p.product_name,
-            "description": p.description,
-            "garansi": p.garansi,
-            "harga": float(p.harga),
-            "type": p.type.type_name if p.type else None,
-            "stok": p.stok[0].kuantitas if p.stok else 0  # akses stok jika ada
-        })
-
-    return result
+    return products
 
 
 def find_warranty_by_question(question: str):

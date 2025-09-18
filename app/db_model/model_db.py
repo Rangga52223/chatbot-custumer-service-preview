@@ -90,7 +90,6 @@ class Stok(db.Model):
     id_stok = db.Column(db.String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     id_produk = db.Column(db.String(36), db.ForeignKey("produk.product_id"), nullable=False)
     kuantitas = db.Column(db.Integer, nullable=False, default=0)
-    created_at = db.Column(db.TIMESTAMP, nullable=False, default=datetime.utcnow)
 
     # Relasi ke Produk
     produk = db.relationship("Produk", backref="stok")
