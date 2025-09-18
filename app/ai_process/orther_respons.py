@@ -9,7 +9,7 @@ def orther_respond(question, language, user_id, chat_data=None):
         Tugas kamu:
         1.jawab pertanyaan dari customer.
         2.ada data data chat terdahulu yang bisa digunakan untuk relevansi
-        3.jawab langsung
+        3.jawab langsung, tanpa pengantar
         contoh : 'ya ini chat yang pernah kamu lakukan'
         Gunakan bahasa yang ramah dan profesional sebagai customer support.'''
     jawaban = call_llm_no_retrive(prompt)
