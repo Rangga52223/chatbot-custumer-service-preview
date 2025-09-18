@@ -42,6 +42,11 @@ python run.py
 
 #Jangan lupa setting link Database nya
 ```
+Jika pakai docker:
+```bash
+docker build -t myapp-ollama .
+docker exec -it <container_name> ollama pull llama3.2:3b
+```
 
 ---
 
