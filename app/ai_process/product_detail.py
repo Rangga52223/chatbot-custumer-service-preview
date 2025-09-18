@@ -12,7 +12,6 @@ Nama Produk: {p.product_name}
 Deskripsi: {p.description or '-'}
 Garansi: {p.garansi or '-'}
 Harga: Rp.{p.harga or '-'}
-stok: Rp.{p.stok or '-'}
 Jenis Produk: {p.type.type_name}
 -------------------------------
 """

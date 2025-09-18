@@ -7,7 +7,7 @@ def tracking_transaction(question, language, user_id):
     prompt = f'''Kamu adalah Kamu adalah customer support untuk platform toko online.
     Tugas kamu cek status pesanan berdasarkan id.
     pertanyaan:{question}'''
-    jawaban = llm_call_tooling(cek_status_pesanan, prompt)
+    jawaban = llm_call_tooling(cek_status_pesanan, prompt, "Gunakan tool ini untuk mengecek status pesanan berdasarkan transaction_id")
     save_chat(user_id, question, jawaban)
     return jsonify(message=jawaban),200
 

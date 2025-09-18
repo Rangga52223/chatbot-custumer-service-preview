@@ -26,11 +26,11 @@ def call_llm_no_retrive(prompt: str):
         print(f"[Ollama Error] {e}", file=sys.stderr)
         return None
     
-def llm_call_tooling(func_name, prompt):
+def llm_call_tooling(func_name, prompt, description):
     funct_status_tool = Tool(
         name="CekStatusPesanan",
         func=func_name,
-        description="Gunakan tool ini untuk mengecek status pesanan berdasarkan transaction_id"
+        description=description
     )
     agent = initialize_agent(
         tools=[funct_status_tool],

@@ -14,22 +14,30 @@ def main_service(question, user_id):
     try:
         prompt = f"""
         Kamu adalah AI yang HANYA mengembalikan output berupa JSON VALID.
+        jangan ada "Berikut adalah kembalihan JSON dengan format yang sesuai:" harus clear.
+        Riwayat percakapan:
+        {data_chat}
+
+        Pertanyaan baru:
+        "{question}"
 
         Tugas kamu:
-        1. Perbaiki semua typo pada pertanyaan berikut: "{question}".
-        2. Deteksi bahasa pertanyaan tersebut.
-        3. Tentukan nilai "alur" dengan aturan berikut:
-        - "a" jika pertanyaan terkait produk, daftar produk, spesifikasi produk, atau jenis produk.
-        - "b" jika pertanyaan terkait garansi atau detail garansi.
-        - "c" jika pertanyaan terkait order, transaksi, status pengiriman, atau pembelian.
-
-        ⚠️ Jangan berikan penjelasan, hanya kembalikan JSON valid.
-
-        Format output:
+        1. Perbaiki semua typo pada pertanyaan.
+        2. Tentukan bahasa pertanyaan.
+        3. Tentukan alur ("alur") dengan aturan berikut:
+        - "a" jika pertanyaan tentang produk (spesifikasi, perbandingan, daftar produk)
+        - "b" jika pertanyaan tentang garansi
+        - "c" jika pertanyaan tentang order, transaksi, status pengiriman
+        - "d" jika:
+            • pertanyaan merujuk percakapan sebelumnya (contoh: "tadi saya tanya", "lanjut dari yang tadi")
+            • pertanyaan berupa sapaan ("halo", "hai", "selamat pagi", dll)
+            • pertanyaan di luar konteks toko online (contoh: "cuaca hari ini bagaimana?")
+        
+        Kembalikan JSON dengan format:
         {{
         "question": "pertanyaan yang sudah diperbaiki",
-        "language": "nama bahasa",
-        "alur": "a/b/c"
+        "language": "bahasa",
+        "alur": "a/b/c/d"
         }}
         """
 

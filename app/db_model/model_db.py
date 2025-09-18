@@ -31,15 +31,14 @@ class Type(db.Model):
 
 
 class WarantyDetail(db.Model):
-    __tablename__ = "waranty_detail"   # sesuai tabel di DB
+    __tablename__ = "waranty_detail"
 
     waranty_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     waranty_detail = db.Column(db.Text, nullable=False)
     type_id = db.Column(db.Integer, db.ForeignKey("type.type_id"), nullable=False)
-    created_at = db.Column(db.TIMESTAMP, nullable=False, default=datetime.utcnow)
 
     type = db.relationship("Type", back_populates="waranty_details")
-
+    
 class User(db.Model):
     __tablename__ = "user"
 
