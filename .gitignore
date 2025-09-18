@@ -1,5 +1,6 @@
 # Virtual environment
 bakso/
+venv/
 .env
 
 # Bytecode Python

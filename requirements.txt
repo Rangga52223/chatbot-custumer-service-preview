@@ -1,5 +1,5 @@
 flask==3.1.2
-langchain
+flask_sqlalchemy==3.1.1
 dotenv==0.9.9
-langchain-community 
-llama-cpp-python
+langchain_community==0.3.29
+pymysql==1.1.2

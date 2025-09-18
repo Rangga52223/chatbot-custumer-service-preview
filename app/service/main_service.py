@@ -22,7 +22,7 @@ Tugas kamu:
    - Jika pertanyaan terkait produk, set "alur" ke "a".
    - Jika pertanyaan terkait garansi atau detail garansi, set "alur" ke "b".
    - Jika pertanyaan terkait memasukkan order, transaksi, bukti transaksi, atau cek status transaksi, set "alur" ke "c".
-   - Jika pertanyaan di luar lingkup a, b, c DAN menanyakan tentang chat terdahulu, set "alur" ke "d".
+   - Jika pertanyaan di luar lingkup a, b, c DAN menanyakan tentang chat terdahulu/masa lalu, set "alur" ke "d".
 
 ⚠️ Penting:
 - Jangan menambahkan penjelasan di luar JSON.

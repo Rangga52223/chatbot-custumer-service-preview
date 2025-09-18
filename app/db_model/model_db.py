@@ -83,3 +83,17 @@ class ChatLog(db.Model):
 
     def __repr__(self):
         return f"<ChatLog {self.chat_id} - User {self.user_id}>"
+    
+class Stok(db.Model):
+    __tablename__ = "stok"
+
+    id_stok = db.Column(db.String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    id_produk = db.Column(db.String(36), db.ForeignKey("produk.product_id"), nullable=False)
+    kuantitas = db.Column(db.Integer, nullable=False, default=0)
+    created_at = db.Column(db.TIMESTAMP, nullable=False, default=datetime.utcnow)
+
+    # Relasi ke Produk
+    produk = db.relationship("Produk", backref="stok")
+
+    def __repr__(self):
+        return f"<Stok {self.id_stok} | Produk {self.id_produk} | Qty {self.kuantitas}>"

@@ -3,7 +3,8 @@ from app.helper.saving_chat import save_chat
 from flask import jsonify
 def orther_respond(question, language, user_id, chat_data=None):
     prompt = f'''Kamu adalah customer support untuk platform toko online. 
-        Data chat terdahulu: {chat_data}
+        Data chat terdahulu: {chat_data}.
+        Bahasa:{language}
         Tugas kamu:
         1. Jika customer menanyakan chat/percakapan sebelumnya, jawab berdasarkan data chat terdahulu di atas.
         2. Jika customer menyapa (halo, hai, selamat pagi, dll) atau menanyakan identitas kamu, jawab dengan ramah sebagai customer support.

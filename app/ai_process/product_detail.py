@@ -11,7 +11,8 @@ def product_detail(question, language, user_id):
 Nama Produk: {p.product_name}
 Deskripsi: {p.description or '-'}
 Garansi: {p.garansi or '-'}
-Haraga: Rp.{p.harga or '-'}
+Harga: Rp.{p.harga or '-'}
+stok: Rp.{p.stok or '-'}
 Jenis Produk: {p.type.type_name}
 -------------------------------
 """
