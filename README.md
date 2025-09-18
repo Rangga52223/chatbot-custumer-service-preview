@@ -15,6 +15,8 @@ Pastikan sudah terinstall:
 - **Ollama** untuk init ke llama 3.2:3b
 - **LLAMA3.2:3b** pastikan sudah di pull
 - **Langchain_Comunity** pastikan sudah di install
+- **Flask** Flask cukup untuk chatbot sederhana, terlebih lagi ada flask_alchemy
+
 
 ### 2. Cara Instalasi
 Clone repository dan install dependency:
@@ -78,23 +80,28 @@ Table stok tidak digunakan
 | **LLM Core**     | LLAMA 3.2:3b(Lokal) |
 | **Prompting**    | Custom prompt untuk klasifikasi `alur` dan pembuatan jawaban |
 | **Memori**       | SQL database + retrieval dari 3 chat terakhir |
+| **Framwork LLM**       | Langchain |
+| **BE**       | Flask |
 
 ---
 
 ## ❓ Daftar Pertanyaan yang Dapat Dijawab
 
 - **Produk (alur = a):**  
-  - "menanyakan keseluruhan produk"
-  - "membandingkan antar produk"
-  - "menanyakan keunggulan produk"
+  - "apa saja produk merek A?"
+  - "Apa bagus nya produk A, dibanding produk B"
+  - "Rekomendasi televisi, yang cocok untuk ruang keluarga?"
+  - "Pilihan kulkas yang muat banyak barang tapi murah di kantong?"
 - **Garansi (alur = b):**  
-  - "menayakan secara general garansi produk tersebut"
-  - "menanyakan secara spesifik kerusakan terhadap produk dan dapat diclaim garansi atau tidak"
+  - "garansi produk A berapa tahun"
+  - "Saya habis membeli produk A, dan layar pecah, pemakaian masih 1bln apakah bisa claim garansi?"
 - **Transaksi (alur = c):**  
-  - "manyakan status pesanan pada transaksi "
-  - "menanyakan informasi lebih detail tentang informasi pesanan
+  - "status pesanan saya dengan ID 00000000"
+  - "Berapa total Pesanan saya dengan ID 000000"
 - **pertanyaan diluar konteks (alur = d):**  
-  - "menanyakan hal hal random dan cara menangani nya"
+  - "nama saya AZ"
+  - "siapa nama Saya"
+  - "Hallo"
 
 ---
 
@@ -110,6 +117,10 @@ Agent mendukung tool call berikut:
 
 ## 🧪 Cara Uji
 
-
+1. **Simpan chat:**  
+   Kirim request:
+   ```json
+   { "question": "Rekomdasi televisi murah dan bagus?", "user_id": "21ccf5e0-9240-11f0-bbde-0068eb3251c5" }
+   ```
 ## 📄 Lisensi
 MIT License – bebas digunakan dan dimodifikasi.
