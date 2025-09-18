@@ -44,7 +44,7 @@ python run.py
 ```
 Jika pakai docker:
 ```bash
-docker build -t myapp-ollama .
+docker build -t chatbot .
 docker exec -it <container_name> ollama pull llama3.2:3b
 ```
 
