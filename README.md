@@ -100,7 +100,6 @@ Perhatian untuk pertanyaan produk hanya bisa seputar televisi, mesin cuci, dan k
   - "Saya habis membeli produk A, dan layar pecah, pemakaian masih 1bln apakah bisa claim garansi?"
 - **Transaksi (alur = c):**  
   - "status pesanan saya dengan ID 00000000"
-  - "Berapa total Pesanan saya dengan ID 000000"
 - **pertanyaan diluar konteks (alur = d):**  
   - "nama saya AZ"
   - "siapa nama Saya"

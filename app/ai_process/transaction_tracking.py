@@ -26,32 +26,5 @@ def cek_status_pesanan(transaction_id: str):
     ).first()
 
     if not transaksi:
-        return {
-            "success": False,
-            "message": f"Tidak ada transaksi dengan ID {transaction_id}. Beritahu user untuk cek ulang."
-        }
-
-    # Ambil semua detail transaksi
-    return {
-        "success": True,
-        "transaction": {
-            "transaction_id": transaksi.transaction_id,
-            "status": transaksi.status,
-            "order_date": transaksi.order_date.isoformat() if transaksi.order_date else None,
-            "shipping_date": transaksi.shipping_date.isoformat() if transaksi.shipping_date else None,
-            "delivery_date": transaksi.delivery_date.isoformat() if transaksi.delivery_date else None,
-            "customer_name": transaksi.customer_name,
-            "shipping_address": transaksi.shipping_address,
-            "total_amount": float(transaksi.total_amount) if transaksi.total_amount else None,
-            "payment_method": transaksi.payment_method,
-            "items": [
-                {
-                    "product_id": item.product_id,
-                    "product_name": item.product_name,
-                    "quantity": item.quantity,
-                    "price": float(item.price)
-                }
-                for item in transaksi.items
-            ] if hasattr(transaksi, "items") else []
-        }
-    }
+        return f"Tidak ada transaksi dengan ID {transaction_id}. Beritahu user untuk cek ulang."
+    return f"Status pesanan: {transaksi.status}"
