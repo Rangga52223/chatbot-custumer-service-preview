@@ -6,6 +6,7 @@ from app.helper.saving_chat import save_chat
 def tracking_transaction(question, language, user_id):
     prompt = f'''Kamu adalah Kamu adalah customer support untuk platform toko online.
     Tugas kamu cek status pesanan/hal detail yang di tanyakan oleh costumer berdasarkan id.
+    langsung jawab tanpa pengantar.
     pertanyaan:{question}'''
     jawaban = llm_call_tooling(cek_status_pesanan, prompt, "Gunakan tool ini untuk mengecek status pesanan berdasarkan transaction_id")
     save_chat(user_id, question, jawaban)

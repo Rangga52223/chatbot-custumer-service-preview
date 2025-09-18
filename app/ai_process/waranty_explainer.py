@@ -59,7 +59,7 @@ def waranty_explainer(question, language, user_id):
 ini data garansi: {data}
 Tugas kamu:
 1.jawab pertanyaan berdasarkan data garansi yang ada.
-2.jawab pertanyaan secara langsung.
+2.jawab pertanyaan secara langsung.tanpa pengantar.
 Pertanyaan: "{question}"
 """
 
