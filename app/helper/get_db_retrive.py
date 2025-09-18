@@ -1,4 +1,4 @@
-from app.db_model.product_model_db import Produk, Type
+from app.db_model.model_db import Produk, Type
 from langchain_community.embeddings import OllamaEmbeddings
 from langchain_core.documents import Document
 from langchain_community.vectorstores import Chroma

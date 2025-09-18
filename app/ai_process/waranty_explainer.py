@@ -1,6 +1,6 @@
 from app.llm.ollama_init import call_llm_no_retrive
 import json
-from app.db_model.product_model_db import WarantyDetail
+from app.db_model.model_db import WarantyDetail
 from app.helper.find_prod import find_warranty_by_question
 from flask import jsonify
 

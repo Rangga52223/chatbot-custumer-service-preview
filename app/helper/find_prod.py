@@ -1,5 +1,5 @@
 from sqlalchemy import or_
-from app.db_model.product_model_db import Produk, Type, WarantyDetail
+from app.db_model.model_db import Produk, Type, WarantyDetail
 def find_products_by_question(question: str):
     """
     Cari produk relevan berdasarkan pertanyaan user.

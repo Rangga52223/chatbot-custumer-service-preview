@@ -1,12 +1,14 @@
 from app.llm.ollama_init import llm_call_tooling
-from app.db_model.product_model_db import Transaction, db
+from app.db_model.model_db import Transaction, db
 from sqlalchemy.orm import Session
 from flask import jsonify
-def tracking_transaction(question, language):
+from app.helper.saving_chat import save_chat
+def tracking_transaction(question, language, user_id):
     prompt = f'''Kamu adalah Kamu adalah customer support untuk platform toko online.
-    Tugas kamu cek status pesanan berdasarkan id dari pertanyaan, id harus lower case.
+    Tugas kamu cek status pesanan berdasarkan id.
     pertanyaan:{question}'''
     jawaban = llm_call_tooling(cek_status_pesanan, prompt)
+    save_chat(user_id, question, jawaban)
     return jsonify(message=jawaban),200
 
 
