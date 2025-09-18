@@ -18,8 +18,6 @@ def get_last_three_chats(user_id: str):
     )
     return [
         {
-            "chat_id": chat.chat_id,
-            "user_id": chat.user_id,
             "chat_user": chat.chat_user,
             "chat_bot": chat.chat_bot,
             "created_at": chat.created_at.isoformat() if chat.created_at else None

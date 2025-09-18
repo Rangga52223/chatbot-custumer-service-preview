@@ -1,8 +1,9 @@
 from app.llm.ollama_init import call_llm_no_retrive
 import json
 from app.helper.find_prod import find_products_by_question
+from app.helper.saving_chat import save_chat
 
-def product_detail(question, language):
+def product_detail(question, language, user_id):
     product = find_products_by_question(question)
     detail_produk = ""
     for p in product:
@@ -38,5 +39,6 @@ Contoh format output:
         return "Maaf, terjadi kesalahan dalam memproses jawaban."
 
     jawaban = (parsed.get('jawaban') or '').strip()
+    save_chat(user_id, question, jawaban)
     return jawaban
 

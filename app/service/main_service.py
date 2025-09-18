@@ -10,32 +10,31 @@ def main_service(question, user_id):
     if question == None:
         return jsonify(jawaban='tidak ada pertanyaan')
     data_chat = get_last_three_chats(user_id)
-    print(data_chat)
     try:
         prompt = f"""
-                Kamu adalah asisten yang hanya memberikan output dalam **format JSON valid**.
-                Data chat terdahulu: {data_chat}
+Kamu adalah asisten yang hanya memberikan output dalam **format JSON valid**.
 
-                Tugas kamu:
-                1. Perbaiki semua typo pada pertanyaan berikut: "{question}".
-                2. Tentukan bahasa pertanyaan tersebut.
-                3. Tentukan alur ("alur") berdasarkan aturan berikut:
-                - Jika pertanyaan terkait produk, set "alur" ke "a".
-                - Jika pertanyaan terkait garansi atau detail garansi, set "alur" ke "b".
-                - Jika pertanyaan terkait memasukkan order, transaksi, bukti transaksi, atau cek status transaksi, set "alur" ke "c".
-                - Jika pertanyaan di luar lingkup a, b, c DAN ada data chat terdahulu yang relevan, set "alur" ke "d".
+Tugas kamu:
+1. Perbaiki semua typo pada pertanyaan berikut: "{question}".
+2. Tentukan bahasa pertanyaan tersebut.
+3. Tentukan alur ("alur") berdasarkan aturan berikut, dengan urutan prioritas:
+   - **Jika pertanyaan secara eksplisit menyebutkan chat sebelumnya** (misal: "tadi saya chat", "sebelumnya saya tanya", "lanjut dari yang tadi"), set "alur" ke "d".
+   - Jika pertanyaan terkait produk, set "alur" ke "a".
+   - Jika pertanyaan terkait garansi atau detail garansi, set "alur" ke "b".
+   - Jika pertanyaan terkait memasukkan order, transaksi, bukti transaksi, atau cek status transaksi, set "alur" ke "c".
+   - Jika pertanyaan di luar lingkup a, b, c DAN menanyakan tentang chat terdahulu, set "alur" ke "d".
 
-                ⚠️ Penting:
-                - Jangan menambahkan penjelasan di luar JSON.
-                - Hanya keluarkan **JSON valid**.
+⚠️ Penting:
+- Jangan menambahkan penjelasan di luar JSON.
+- Hanya keluarkan **JSON valid**.
 
-                Format output yang diharapkan:
-                {{
-                    "question": "pertanyaan yang sudah diperbaiki",
-                    "language": "bahasa pertanyaan",
-                    "alur": "kode alur (a/b/c/d)"
-                }}
-                """
+Format output yang diharapkan:
+{{
+    "question": "pertanyaan yang sudah diperbaiki",
+    "language": "bahasa pertanyaan",
+    "alur": "kode alur (a/b/c/d)"
+}}
+"""
 
         data = call_llm_no_retrive(prompt)
         print(data)
@@ -43,7 +42,7 @@ def main_service(question, user_id):
         language = (data.get('language') or '').strip()
         question = (data.get('question') or '').strip()
         if alur == 'a':
-            jawaban = product_detail(question, language)
+            jawaban = product_detail(question, language, user_id)
             return jsonify(jawaban=jawaban)
         elif alur == 'b':
             return waranty_explainer(question, language)

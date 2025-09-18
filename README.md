@@ -1,0 +1,105 @@
+# 🛠 AI Customer Support Service
+
+Sistem AI Agent untuk menjawab pertanyaan pelanggan terkait produk, garansi, transaksi, dan percakapan sebelumnya.  
+Agent menggunakan memori berbasis database SQL untuk mengingat chat sebelumnya dan memberikan respons yang konsisten.
+
+---
+
+## 📦 Instalasi & Requirement
+
+### 1. Persiapan Environment Lokal
+Pastikan sudah terinstall:
+- **Python 3.10+**
+- **pip** (package manager)
+- **SQL** Seperti mariadb, saya mau aslinya mau pake postgre, tapi mengikuti ketentuan.
+
+### 2. Cara Instalasi
+Clone repository dan install dependency:
+
+```bash
+git clone https://github.com/username/project-name.git
+cd project-name
+
+# (Opsional) Buat virtual environment
+python -m venv venv
+source venv/bin/activate   # Linux / Mac
+venv\Scripts\activate      # Windows
+
+# Install dependencies
+pip install -r requirements.txt
+
+```
+
+Jalankan aplikasi:
+```bash
+python run.py
+```
+
+---
+
+## 🗄 Desain Database
+
+
+
+## 📚 Library & Framework yang Digunakan
+
+
+
+---
+
+## 🧠 Model LLM yang Digunakan
+
+| Komponen          | Model / Service     |
+|------------------|-------------------|
+| **LLM Core**     | GPT-4 / GPT-5 (via OpenAI API) |
+| **Prompting**    | Custom prompt untuk klasifikasi `alur` dan pembuatan jawaban |
+| **Memori**       | SQL database + retrieval dari 3 chat terakhir |
+
+---
+
+## ❓ Daftar Pertanyaan yang Dapat Dijawab
+
+- **Produk (alur = a):**  
+  - "menanyakan keseluruhan produk"
+  - "membandingkan antar produk"
+  - "menanyakan stok produk yang tersedia"
+- **Garansi (alur = b):**  
+  - "menayakan secara general garansi produk tersebut"
+  - "menanyakan secara spesifik kerusakan terhadap produk dan dapat diclaim garansi atau tidak"
+- **Transaksi (alur = c):**  
+  - "manyakan status pesanan pada transaksi "
+  - "menanyakan informasi lebih detail tentang informasi pesanan
+- **pertanyaan diluar konteks (alur = d):**  
+  - "menanyakan hal hal random dan cara menangani nya"
+
+---
+
+## 🛠 Daftar Tool Call
+
+Agent mendukung tool call berikut:
+- **product_detail(question, language)** → Mendapatkan detail produk
+- **waranty_explainer(question, language)** → Menjelaskan detail garansi
+- **tracking_transaction(question, language, user_id)** → Mengecek status transaksi
+- **orther_respond(question, language, user_id, chat_data)** → Memberikan jawaban berbasis chat sebelumnya
+
+---
+
+## 🧪 Cara Uji
+
+1. **Simpan chat:**  
+   Kirim request:
+   ```json
+   { "question": "Nama kucing saya Bobo", "user_id": "123" }
+   ```
+
+2. **Recall chat:**  
+   Kirim request lain:
+   ```json
+   { "question": "Siapa nama kucing saya?", "user_id": "123" }
+   ```
+   AI harus menjawab **"Nama kucing kamu Bobo"**, bahkan setelah server direstart.
+
+---
+
+## 📄 Lisensi
+MIT License – bebas digunakan dan dimodifikasi.
