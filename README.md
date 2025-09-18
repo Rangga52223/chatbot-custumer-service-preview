@@ -22,9 +22,8 @@ Pastikan sudah terinstall:
 Clone repository dan install dependency:
 
 ```bash
-git clone https://github.com/username/project-name.git
-cd project-name
-
+git clone https://github.com/Rangga52223/chatbot-custumer-service-preview.git
+cd /chatbot-custumer-service-preview
 # (Opsional) Buat virtual environment
 python -m venv venv
 source venv/bin/activate   # Linux / Mac
@@ -84,13 +83,13 @@ Table stok tidak digunakan
 | **LLM Core**     | LLAMA 3.2:3b(Lokal) |
 | **Prompting**    | Custom prompt untuk klasifikasi `alur` dan pembuatan jawaban |
 | **Memori**       | SQL database + retrieval dari 3 chat terakhir |
-| **Framwork LLM**       | Langchain |
+| **Framework LLM**       | Langchain |
 | **BE**       | Flask |
 
 ---
 
 ## ❓ Daftar Pertanyaan yang Dapat Dijawab
-Perhatian kasih pertanyaan produk seputar televisi, mesin cuci, dan kulkas saja
+Perhatian untuk pertanyaan produk hanya bisa seputar televisi, mesin cuci, dan kulkas saja
 - **Produk (alur = a):**  
   - "apa saja produk merek A?"
   - "Apa bagus nya produk A, dibanding produk B"
@@ -118,7 +117,13 @@ Agent mendukung tool call berikut:
 - **orther_respond(question, language, user_id, chat_data)** → Memberikan jawaban berbasis chat sebelumnya
 
 ---
+## List User id yang bisa di gunakan
 
+1. **21ccf5e0-9240-11f0-bbde-0068eb3251c5**  
+2. **21ccf5eb-9240-11f0-bbde-0068eb3251c5** 
+3. **21ccf5eb-9240-11f0-bbde-0068eb3251c5** 
+
+   
 ## 🧪 Cara Uji
 
 1. **Simpan chat:**  
